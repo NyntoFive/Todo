@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="text-center mt-5">
+    <h2>TO-DO List</h2>
+</div>
+<hr>
+<div class="row">
+    {% for note in to_do_list %}
+    <div class="col-12">
+        {% include "note_snippet.html" with note_snippet_var=note type="DELETE" %}
+    </div>
+    {% endfor %}
+</div>
+
+<div class="text-center mt-5">
+    <h2>Finished List</h2>
+</div>
+<hr>
+<div class="row">
+    {% for note in finished_list %}
+    <div class="col-12">
+        {% include "note_snippet.html" with note_snippet_var=note type="ADD" %}
+    </div>
+
+    {% endfor %}
+</div>
+{% endblock content %}
